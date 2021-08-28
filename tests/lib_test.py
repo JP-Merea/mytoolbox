@@ -1,17 +1,19 @@
 from mytoolbox.lib import cleaning
 
 def test_clean():
-    res = cleaning()
-    assert ',' in res
+    res = cleaning('hello, my name')
+    assert not ',' in res
 
 def test_clean2():
-    res = cleaning()
-    assert 'á' in res
+    res = cleaning('$ pesos')
+    assert not '$' in res
 
 def test_clean3():
-    res = cleaning()
-    assert 'ç' in res
+    res = cleaning('française')
+    assert not 'ç' in res
 
 def test_clean4():
-    res = cleaning()
-    assert res.Capitalize in res
+    string=  'My Name Is'
+    res = cleaning(string)
+    assert res == res.lower()
+
